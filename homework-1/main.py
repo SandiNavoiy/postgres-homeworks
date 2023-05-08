@@ -48,6 +48,6 @@ def orders(file_mame):
     cur.close()
     conn.close()
 
-#customers("north_data/customers_data.csv")
+customers("north_data/customers_data.csv")
 employees("north_data/employees_data.csv")
 orders("north_data/orders_data.csv")
