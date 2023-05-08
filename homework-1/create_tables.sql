@@ -11,7 +11,7 @@ CREATE TABLE employees
 );
 CREATE TABLE customers
 (
-    customer_id int PRIMARY KEY NOT NULL,
+    customer_id varchar(5) PRIMARY KEY NOT NULL,
     company_name varchar(50) NOT NULL,
     contact_name varchar(20) NOT NULL
 );
