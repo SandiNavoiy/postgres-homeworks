@@ -29,7 +29,7 @@ def employees(file_mame):
         for row in reader:
             cur.execute("INSERT INTO employees (id_emp, first_name, last_name, title, birth_date, notes) VALUES (%s, %s, %s, %s, %s, %s)",
                         (id_emp, row[0], row[1], row[2], row[3], row[4]))
-            id_emp =+ 1
+            id_emp += 1
 
     conn.commit()
     cur.close()

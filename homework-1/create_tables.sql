@@ -19,8 +19,12 @@ CREATE TABLE customers
 CREATE TABLE orders
 (
     order_id int PRIMARY KEY NOT NULL,
-    customer_id varchar(5) UNIQUE REFERENCES customers(customer_id) NOT NULL,
-    employee_id int UNIQUE REFERENCES employees(id_emp) NOT NULL,
+    customer_id varchar(5) REFERENCES customers(customer_id) NOT NULL,
+    employee_id int REFERENCES employees(id_emp) NOT NULL,
     order_date date NOT NULL,
     ship_city varchar(30) NOT NULL
 )
+
+SELECT * FROM customers
+SELECT * FROM orders
+SELECT * FROM employees
