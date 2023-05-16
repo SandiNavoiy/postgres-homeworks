@@ -13,6 +13,7 @@ WHERE customers.city = 'London' AND  employees.city = 'London' AND shippers.comp
 -- Отсортировать результат по возрастанию количества оставшегося товара.
 SELECT product_name, units_in_stock, contact_name, phone FROM products
 INNER JOIN suppliers USING(supplier_id)
+WHERE products.discontinued < 1 AND products.units_in_stock < 25
 ORDER BY units_in_stock
 
 -- 3. Список компаний заказчиков (company_name из табл customers), не сделавших ни одного заказа
@@ -23,3 +24,8 @@ WHERE customer_id NOT IN (SELECT customer_id FROM orders)
 
 -- 4. уникальные названия продуктов, которых заказано ровно 10 единиц (количество заказанных единиц см в колонке quantity табл order_details)
 -- Этот запрос написать именно с использованием подзапроса.
+Select product_name FROM products
+WHERE product_id IN (
+	SELECT product_id FROM order_details
+	GROUP BY product_id
+	HAVING SUM(quantity) = 10
