@@ -2,7 +2,7 @@
 
 CREATE TABLE employees
 (
-    id_emp int PRIMARY KEY NOT NULL,
+    id_emp int NOT NULL,
     first_name varchar(20) NOT NULL,
     last_name varchar(20) NOT NULL,
     title text,
